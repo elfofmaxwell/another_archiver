@@ -1,0 +1,13 @@
+# channel id's for download
+channels: 
+  - UCRvkXFtB70ZADg4L6A8L3wQ 
+
+# slow mode options, sleep_time in second
+slow_mode: True
+sleep_time: 300
+
+# download path
+download_path: ./download
+
+# cookie path, leave blank if not using
+cookie_path: 
