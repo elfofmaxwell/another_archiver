@@ -83,6 +83,8 @@ def download_list(channel_id: str, auto_continue=True, verbosity=0):
     sleep_time = conf['sleep_time']
     slow_mode = conf['slow_mode']
     cookie_path = conf['cookie_path']
+    if cookie_path == None: 
+        cookie_path = ''
     
     # keep download until all videos downloaded or manually stopped
     while True: 
