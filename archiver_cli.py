@@ -16,6 +16,7 @@ def sync_config_db():
         # get channels in channel_list table
         conn = sqlite3.connect('archive.db')
         cur = conn.cursor()
+        cur.execute('CREATE TABLE IF NOT EXISTS channel_list (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, channel_id TEXT NOT NULL UNIQUE, channel_name TEXT NOT NULL, description TEXT NOT NULL, thumb_url TEXT NOT NULL, checkpoint_idx INTEGER NOT NULL DEFAULT 0)')
         cur.execute('SELECT channel_id FROM channel_list')
         searched_channel_list = cur.fetchall()
         if searched_channel_list: 
