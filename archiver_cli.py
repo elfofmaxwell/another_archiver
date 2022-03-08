@@ -28,15 +28,15 @@ def sync_config_db():
         config_unique_channels = config_channel_list - db_channel_list
         db_unique_channels = db_channel_list - config_channel_list
         
-        # adding channels to config file
-        if db_unique_channels: 
-            for channel in db_unique_channels: 
-                conf['channels'].append(channel)
-        
         # adding channels to channel_list
         if config_unique_channels: 
             for channel in config_unique_channels: 
                 init_channel(channel)
+
+        # remove db unique channel
+        if db_unique_channels: 
+            for channel in db_unique_channels: 
+                cur.execute("DELETE FROM channel_list WHERE channel_id=?", (channel, ))
         
         return 0
     
